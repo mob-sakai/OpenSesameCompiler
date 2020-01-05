@@ -13,6 +13,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
 using Roslyn.Utilities;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Reflection;
 
 namespace Microsoft.CodeAnalysis.CSharp
 {
@@ -161,6 +162,11 @@ namespace Microsoft.CodeAnalysis.CSharp
 
             var loggingFileSystem = new LoggingStrongNameFileSystem(touchedFilesLogger, _tempDirectory);
 
+            // BindingFlags.IgnoreAccessibility
+            typeof(CSharpCompilationOptions)
+                .GetProperty("TopLevelBinderFlags", BindingFlags.Instance | BindingFlags.NonPublic)
+                .SetValue(Arguments.CompilationOptions, (uint)1 << 22);
+            
             return CSharpCompilation.Create(
                 Arguments.CompilationName,
                 trees.WhereNotNull(),
