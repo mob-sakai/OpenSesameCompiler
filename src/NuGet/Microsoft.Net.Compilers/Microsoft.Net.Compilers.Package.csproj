@@ -4,15 +4,17 @@
     <TargetFramework>net472</TargetFramework>
 
     <IsPackable>true</IsPackable>
-    <NuspecPackageId>Microsoft.Net.Compilers</NuspecPackageId>
+    <NuspecPackageId>OpenSesameCompiler</NuspecPackageId>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <DevelopmentDependency>true</DevelopmentDependency>
     <PackageDescription>
-      .NET Compilers package.
-      Referencing this package will cause the project to be built using the specific version of the C# and Visual Basic compilers contained in the package, as opposed to any system installed version.
+      This package is a rebuild of the Roslyn compiler.
+      https://www.nuget.org/packages/Microsoft.Net.Compilers/3.4.0
+      
+      This compiler enables `IgnoresAccessChecksToAttribute` and allows access to internals/privates in other assemblies.
+      https://www.strathweb.com/2018/10/no-internalvisibleto-no-problem-bypassing-c-visibility-rules-with-roslyn/
 
       This package can be used to compile code targeting any platform, but can only be run using the desktop .NET 4.7.2+ Full Framework.
-      $(RoslynPackageDescriptionDetails)
     </PackageDescription>
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_GetFilesToPackage</TargetsForTfmSpecificContentInPackage>
   </PropertyGroup>
