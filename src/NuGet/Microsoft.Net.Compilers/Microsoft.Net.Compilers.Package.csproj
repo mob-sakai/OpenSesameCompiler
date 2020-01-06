@@ -2,7 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-
+    <Authors>mob-sakai</Authors>
+    <Copyright>mob-sakai</Copyright>
     <IsPackable>true</IsPackable>
     <NuspecPackageId>OpenSesameCompiler</NuspecPackageId>
     <IncludeBuildOutput>false</IncludeBuildOutput>
