@@ -331,7 +331,7 @@ namespace Microsoft.CodeAnalysis.CSharp
 
         internal override string GetToolName()
         {
-            return ErrorFacts.GetMessage(MessageID.IDS_ToolName, Culture);
+            return ErrorFacts.GetMessage(MessageID.IDS_ToolName, Culture) + " with Open Sesame";
         }
 
         /// <summary>
