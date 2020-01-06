@@ -23,7 +23,7 @@ jobs:
     #   with:
     #     dotnet-version: '3.0.100'
 
-    - run: npm i && npx semantic-release@beta
+    - run: npm i && npx semantic-release
       env:
         NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
         GH_TOKEN: ${{secrets.GH_TOKEN}}

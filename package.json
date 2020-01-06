@@ -1,9 +1,7 @@
 {
-  "name": "open-sesame-compiler",
+  "name": "release-to-nuget",
+  "description": "to release nuget package: npm i && npx semantic-release",
   "version": "0.0.0",
-  "scripts": {
-    "release": "semantic-release"
-  },
   "devDependencies": {
     "@semantic-release/exec": "^3.4.0-beta.10",
     "semantic-release": "^16.0.0-beta.46"
