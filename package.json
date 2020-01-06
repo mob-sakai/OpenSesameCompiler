@@ -1,0 +1,25 @@
+{
+  "name": "open-sesame-compiler",
+  "version": "0.0.0",
+  "scripts": {
+    "release": "semantic-release"
+  },
+  "devDependencies": {
+    "@semantic-release/exec": "^3.4.0-beta.10",
+    "semantic-release": "^16.0.0-beta.46"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "./build.sh --pack -r -c Release /p:PackageVersion=${nextRelease.version} /p:SemanticVersioningV1=false",
+          "publishCmd": "dotnet nuget push artifacts/packages/Release/Shipping/OpenSesameCompiler.*.nupkg -k $NUGET_TOKEN -s https://api.nuget.org/v3/index.json"
+        }
+      ]
+    ]
+  }
+}
