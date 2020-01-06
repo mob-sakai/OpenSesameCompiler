@@ -327,6 +327,7 @@ namespace Microsoft.CodeAnalysis.CSharp
             options = options
                 .WithTopLevelBinderFlags((BinderFlags)(1 << 22))    // BindingFlags.IgnoreAccessibility.
                 .WithAllowUnsafe(true)  // Allow unsafe.
+                .WithMetadataImportOptions(MetadataImportOptions.All) // MetadataImportOptions.All.
                 ;
 
             // Append IgnoresAccessChecksTo.
