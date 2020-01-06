@@ -9,15 +9,40 @@ https://www.strathweb.com/2018/10/no-internalvisibleto-no-problem-bypassing-c-vi
 
 By using open sesame compiler instead of csc, you can access to internals/privates defined in other assemblies.
 
-#### Changes from original:
+#### Changes from original
 
 * Change package name to `OpenSesameCompiler`
-* Add `MetadataImportOptions.All` to import options
+* Allow unsafe code automatically
+* Add `MetadataImportOptions.All` to compilation options
 * Add `BindingFlags.IgnoreAccessibility` (`1 << 22`) to compilation options
 * Add `IgnoresAccessChecksToAttribute` declaration automatically
 * Add `[assembly:IgnoresAccessChecksToAttribute("***")]` for all references
 
-<br><br><br><br>
+#### ~~How to run (demo)~~
+
+1. ~~Clone [demo project]()~~
+```
+git clone demo-proj
+cd demo-proj
+```
+2. ~~The compilation will fail because this project contains internals/privates access.~~
+```
+# The following command will fail.
+dotnet run
+```
+3. ~~Install `OpenSesameCompiler` package to project from nuget~~
+```
+dotnet add OpenSesameCompiler
+```
+4. ~~Add `<CscToolPath>$(PkgOpenSesameCompiler)tools/csc.exe</CscToolPath>` to `PropertyGroup` in `demo.csproj`.~~  
+~~Or, execute the following command.~~
+```
+dotnet run /p:CscToolPath=$(PkgOpenSesameCompiler)tools/csc.exe
+```
+5. ~~Enjoy!~~
+
+
+<br><br><br><br><br><br>
 
 ## Welcome to the .NET Compiler Platform ("Roslyn")
 
