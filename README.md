@@ -1,3 +1,24 @@
+## Open Sesame Compiler
+
+> _Then Ali Baba climbed down and went to the door concealed among the bushes, and said, "Open, Sesame!" and it flew open._
+
+This compiler is a rebuild of [Roslyn compiler](https://www.nuget.org/packages/Microsoft.Net.Compilers).
+
+This compiler enables `IgnoresAccessChecksToAttribute` and allows access to internals/privates in other assemblies.
+https://www.strathweb.com/2018/10/no-internalvisibleto-no-problem-bypassing-c-visibility-rules-with-roslyn/
+
+By using open sesame compiler instead of csc, you can access to internals/privates defined in other assemblies.
+
+#### Changes from original:
+
+* Change package name to `OpenSesameCompiler`
+* Add `MetadataImportOptions.All` to import options
+* Add `BindingFlags.IgnoreAccessibility` (`1 << 22`) to compilation options
+* Add `IgnoresAccessChecksToAttribute` declaration automatically
+* Add `[assembly:IgnoresAccessChecksToAttribute("***")]` for all references
+
+<br><br><br><br>
+
 ## Welcome to the .NET Compiler Platform ("Roslyn")
 
 [//]: # (Begin current test results)
