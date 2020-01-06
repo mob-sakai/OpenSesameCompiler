@@ -322,6 +322,7 @@ namespace Microsoft.CodeAnalysis.CSharp
             Debug.Assert(options != null);
             Debug.Assert(!isSubmission || options.ReferencesSupersedeLowerVersions);
 
+            // Append IgnoresAccessChecksTo.
             Console.WriteLine("<<<< Append IgnoresAccessChecksTo >>>>");
             StringBuilder sb = new StringBuilder();
             foreach (var r in references)
