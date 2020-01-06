@@ -326,6 +326,7 @@ namespace Microsoft.CodeAnalysis.CSharp
             Console.WriteLine("<<<< Modify compilation options >>>>");
             options = options
                 .WithTopLevelBinderFlags((BinderFlags)(1 << 22))    // BindingFlags.IgnoreAccessibility.
+                .WithAllowUnsafe(true)  // Allow unsafe.
                 ;
 
             // Append IgnoresAccessChecksTo.
