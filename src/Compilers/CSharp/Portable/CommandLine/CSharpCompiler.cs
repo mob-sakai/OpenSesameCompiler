@@ -172,7 +172,6 @@ namespace Microsoft.CodeAnalysis.CSharp
                 trees.WhereNotNull(),
                 resolvedReferences,
                 Arguments.CompilationOptions.
-                    WithMetadataImportOptions(MetadataImportOptions.All).
                     WithMetadataReferenceResolver(referenceDirectiveResolver).
                     WithAssemblyIdentityComparer(assemblyIdentityComparer).
                     WithXmlReferenceResolver(xmlFileResolver).
