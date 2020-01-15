@@ -9,7 +9,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Metadata;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CodeGen;
@@ -321,30 +320,6 @@ namespace Microsoft.CodeAnalysis.CSharp
         {
             Debug.Assert(options != null);
             Debug.Assert(!isSubmission || options.ReferencesSupersedeLowerVersions);
-
-            Console.WriteLine("<<<< Append IgnoresAccessChecksTo >>>>");
-            StringBuilder sb = new StringBuilder();
-            foreach (var r in references)
-            {
-                var refAssemblyName = System.Reflection.AssemblyName.GetAssemblyName(r.Display).Name;
-                Console.WriteLine(" - " + refAssemblyName);
-                sb.AppendFormat("[assembly: System.Runtime.CompilerServices.IgnoresAccessChecksTo(\"{0}\")]\n", refAssemblyName);
-            }
-
-            sb.AppendLine("namespace System.Runtime.CompilerServices");
-            sb.AppendLine("{");
-            sb.AppendLine("    [AttributeUsage(System.AttributeTargets.Assembly, AllowMultiple = true)]");
-            sb.AppendLine("    internal class IgnoresAccessChecksToAttribute : System.Attribute");
-            sb.AppendLine("    {");
-            sb.AppendLine("        public IgnoresAccessChecksToAttribute(string assemblyName)");
-            sb.AppendLine("        {");
-            sb.AppendLine("            AssemblyName = assemblyName;");
-            sb.AppendLine("        }");
-            sb.AppendLine("        public string AssemblyName { get; }");
-            sb.AppendLine("    }");
-            sb.AppendLine("}");
-
-            syntaxTrees = syntaxTrees.Concat(new []{ CSharpSyntaxTree.ParseText(sb.ToString()) });
 
             var validatedReferences = ValidateReferences<CSharpCompilationReference>(references);
 
