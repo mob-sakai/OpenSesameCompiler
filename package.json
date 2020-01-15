@@ -1,10 +1,10 @@
 {
   "name": "release-to-nuget",
-  "description": "to release nuget package: npm i && npx semantic-release",
-  "version": "0.0.0",
+  "description": "To release nuget package: npm ci && npx semantic-release",
+  "version": "1.0.0",
   "devDependencies": {
-    "@semantic-release/exec": "^3.4.0-beta.10",
-    "semantic-release": "^16.0.0-beta.46"
+    "@semantic-release/exec": "^4.0.0",
+    "semantic-release": "^16.0.0"
   },
   "release": {
     "plugins": [

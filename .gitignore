@@ -194,5 +194,3 @@ $RECYCLE.BIN/
 
 # WPF temp projects
 *wpftmp.*
-node_modules
-package-lock.json
