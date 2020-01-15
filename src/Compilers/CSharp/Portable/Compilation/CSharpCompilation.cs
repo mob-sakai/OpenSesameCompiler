@@ -322,12 +322,6 @@ namespace Microsoft.CodeAnalysis.CSharp
             Debug.Assert(options != null);
             Debug.Assert(!isSubmission || options.ReferencesSupersedeLowerVersions);
 
-            // Modify compilation options.
-            Console.WriteLine("<<<< Modify compilation options >>>>");
-            options = options
-                .WithTopLevelBinderFlags((BinderFlags)(1 << 22))    // BindingFlags.IgnoreAccessibility.
-                ;
-
             // Append IgnoresAccessChecksTo.
             Console.WriteLine("<<<< Append IgnoresAccessChecksTo >>>>");
             StringBuilder sb = new StringBuilder();
