@@ -324,6 +324,7 @@ namespace Microsoft.CodeAnalysis.CSharp
             // Modify compilation options.
             options = options
                 .WithMetadataImportOptions(MetadataImportOptions.All) // MetadataImportOptions.All.
+                .WithAllowUnsafe(true)  // Allow unsafe.
                 ;
 
             var validatedReferences = ValidateReferences<CSharpCompilationReference>(references);
