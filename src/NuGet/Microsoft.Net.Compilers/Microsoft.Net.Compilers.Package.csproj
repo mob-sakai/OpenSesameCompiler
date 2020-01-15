@@ -9,13 +9,10 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <DevelopmentDependency>true</DevelopmentDependency>
     <PackageDescription>
-      This package is a rebuild of the Roslyn compiler.
-      https://www.nuget.org/packages/Microsoft.Net.Compilers/3.4.0
-      
-      This compiler enables `IgnoresAccessChecksToAttribute` and allows access to internals/privates in other assemblies.
-      https://www.strathweb.com/2018/10/no-internalvisibleto-no-problem-bypassing-c-visibility-rules-with-roslyn/
+This package is a rebuild of the Roslyn compiler to allows access to internals/privates in other assemblies..
+https://www.nuget.org/packages/Microsoft.Net.Compilers/3.4.0
 
-      This package can be used to compile code targeting any platform, but can only be run using the desktop .NET 4.7.2+ Full Framework.
+This package can be used to compile code targeting any platform, but can only be run using the desktop .NET 4.7.2+ Full Framework.
     </PackageDescription>
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_GetFilesToPackage</TargetsForTfmSpecificContentInPackage>
   </PropertyGroup>
