@@ -1,42 +1,44 @@
 ## Open Sesame Compiler
 
+[![Nuget](https://img.shields.io/nuget/v/OpenSesameCompiler)](https://www.nuget.org/packages/OpenSesameCompiler)
+![GitHub](https://img.shields.io/github/license/mob-sakai/OpenSesameCompiler)
+![dl](https://img.shields.io/nuget/dt/OpenSesameCompiler)
+![ci](https://github.com/mob-sakai/OpenSesameCompiler/workflows/Release/badge.svg)
+
 > _Then Ali Baba climbed down and went to the door concealed among the bushes, and said, "Open, Sesame!" and it flew open._
 
 This compiler is a rebuild of [Roslyn compiler](https://www.nuget.org/packages/Microsoft.Net.Compilers).
 
-This compiler enables `IgnoresAccessChecksToAttribute` and allows access to internals/privates in other assemblies.
-https://www.strathweb.com/2018/10/no-internalvisibleto-no-problem-bypassing-c-visibility-rules-with-roslyn/
-
-By using open sesame compiler instead of csc, you can access to internals/privates defined in other assemblies.
+This compiler allows access to internals/privates in other assemblies.
 
 #### Changes from original
 
 * Change package name to `OpenSesameCompiler`
 * Allow unsafe code automatically
 * Add `MetadataImportOptions.All` to compilation options
-* Add `BindingFlags.IgnoreAccessibility` (`1 << 22`) to compilation options
-* Add `IgnoresAccessChecksToAttribute` declaration automatically
-* Add `[assembly:IgnoresAccessChecksToAttribute("***")]` for all references
+* All public static methods in `AccessCheck` class will return `true`
 
 #### ~~How to run (demo)~~
 
 1. ~~Clone [demo project]()~~
-```
+```sh
 git clone demo-proj
 cd demo-proj
 ```
 2. ~~The compilation will fail because this project contains internals/privates access.~~
-```
+```sh
 # The following command will fail.
 dotnet run
 ```
-3. ~~Install `OpenSesameCompiler` package to project from nuget~~
+```sh
 ```
+3. ~~Install `OpenSesameCompiler` package to project from nuget~~
+```sh
 dotnet add OpenSesameCompiler
 ```
 4. ~~Add `<CscToolPath>$(PkgOpenSesameCompiler)tools/csc.exe</CscToolPath>` to `PropertyGroup` in `demo.csproj`.~~  
 ~~Or, execute the following command.~~
-```
+```sh
 dotnet run /p:CscToolPath=$(PkgOpenSesameCompiler)tools/csc.exe
 ```
 5. ~~Enjoy!~~
