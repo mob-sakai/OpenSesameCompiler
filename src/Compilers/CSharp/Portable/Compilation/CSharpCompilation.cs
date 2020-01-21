@@ -321,6 +321,11 @@ namespace Microsoft.CodeAnalysis.CSharp
             Debug.Assert(options != null);
             Debug.Assert(!isSubmission || options.ReferencesSupersedeLowerVersions);
 
+            // Modify compilation options.
+            options = options
+                .WithMetadataImportOptions(MetadataImportOptions.All) // MetadataImportOptions.All.
+                ;
+
             var validatedReferences = ValidateReferences<CSharpCompilationReference>(references);
 
             // We can't reuse the whole Reference Manager entirely (reuseReferenceManager = false)
