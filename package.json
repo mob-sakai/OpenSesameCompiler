@@ -1,0 +1,23 @@
+{
+  "name": "release-to-nuget",
+  "description": "To release nuget package: npm ci && npx semantic-release",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@semantic-release/exec": "^4.0.0",
+    "semantic-release": "^16.0.2"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "./build.sh --pack -r -c Release /p:PackageVersion=${nextRelease.version} /p:SemanticVersioningV1=false",
+          "publishCmd": "dotnet nuget push artifacts/packages/Release/Shipping/OpenSesameCompiler.*.nupkg -k $NUGET_TOKEN -s https://api.nuget.org/v3/index.json"
+        }
+      ]
+    ]
+  }
+}
