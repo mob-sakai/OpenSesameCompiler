@@ -3,14 +3,23 @@
   "description": "To release nuget package: npm ci && npx semantic-release",
   "version": "1.0.0",
   "devDependencies": {
-    "@semantic-release/exec": "^4.0.0",
-    "semantic-release": "^16.0.2"
+    "@semantic-release/exec": "^5.0.0",
+    "semantic-release": "^17.0.7"
   },
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      "@semantic-release/github",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "artifacts/packages/Release/Shipping/OpenSesameCompiler.*.nupkg"
+            }
+          ]
+        }
+      ],
       [
         "@semantic-release/exec",
         {

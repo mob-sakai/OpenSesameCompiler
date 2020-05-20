@@ -194,3 +194,4 @@ $RECYCLE.BIN/
 
 # WPF temp projects
 *wpftmp.*
+node_modules/
