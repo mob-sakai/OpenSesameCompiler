@@ -13,10 +13,23 @@ This compiler allows access to internals/privates in other assemblies.
 
 #### Changes from original
 
-* Change package name to `OpenSesameCompiler`
+* Change the package name to `OpenSesameCompiler`
 * Allow unsafe code automatically
 * Add `MetadataImportOptions.All` to compilation options
 * All public static methods in `AccessCheck` class will return `true`
+
+#### How to build on MacOS
+
+1. Clone this repository
+```sh
+git clone https://github.com/mob-sakai/OpenSesameCompiler
+```
+1. Build this project
+```sh
+cd OpenSesameCompiler
+./build.sh --pack -r -c Release
+```
+1. A nupkg package `OpenSesameCompiler.{version}.nupkg` will be generated in `artifacts/packages/Release/Shipping` directory.
 
 #### ~~How to run (demo)~~
 
@@ -42,6 +55,12 @@ dotnet add OpenSesameCompiler
 dotnet run /p:CscToolPath=$(PkgOpenSesameCompiler)tools/csc.exe
 ```
 5. ~~Enjoy!~~
+
+
+
+
+
+
 
 
 <br><br><br><br><br><br>
