@@ -1,4 +1,4 @@
-﻿<!-- Copyright (c)  Microsoft.  All Rights Reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information. -->
+﻿<!-- Licensed to the .NET Foundation under one or more agreements. The .NET Foundation licenses this file to you under the MIT license. See the LICENSE file in the project root for more information. -->
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
@@ -9,10 +9,10 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <DevelopmentDependency>true</DevelopmentDependency>
     <PackageDescription>
-This package is a rebuild of the Roslyn compiler to allows access to internals/privates in other assemblies..
-https://www.nuget.org/packages/Microsoft.Net.Compilers/3.4.0
+This package is a rebuild of the Roslyn compiler to allows access to internals/privates in other assemblies.
+https://www.nuget.org/packages/Microsoft.Net.Compilers.Toolset
 
-This package can be used to compile code targeting any platform, but can only be run using the desktop .NET 4.7.2+ Full Framework.
+This package requires either MSBuild 16.3 and .NET Desktop 4.7.2+ or .NET Core 2.1+
     </PackageDescription>
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_GetFilesToPackage</TargetsForTfmSpecificContentInPackage>
   </PropertyGroup>
