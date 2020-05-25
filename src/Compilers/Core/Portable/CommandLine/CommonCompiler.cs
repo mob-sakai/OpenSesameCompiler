@@ -103,6 +103,20 @@ namespace Microsoft.CodeAnalysis
 
         public CommonCompiler(CommandLineParser parser, string responseFile, string[] args, BuildPaths buildPaths, string additionalReferenceDirectories, IAnalyzerAssemblyLoader assemblyLoader)
         {
+            for(var i = 0; i < args.Length; i++)
+            {
+                var a = args[i];
+                if ((a.StartsWith("/reference:")) && a.EndsWith(".dll") && a.Contains("/ref/") && a.Contains("/artifacts/bin/"))
+                {
+                    args[i] = a.Replace("/ref/", "/");
+                }
+
+                // if (a.EndsWith("unsafe-"))
+                // {
+                //     args[i] = a.Replace("unsafe-", "unsafe+");
+                // }
+            }
+
             IEnumerable<string> allArgs = args;
             _clientDirectory = buildPaths.ClientDirectory;
 

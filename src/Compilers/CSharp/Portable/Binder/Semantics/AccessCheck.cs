@@ -69,7 +69,7 @@ namespace Microsoft.CodeAnalysis.CSharp
         /// </summary>
         internal static bool IsEffectivelyPublicOrInternal(Symbol symbol, out bool isInternal)
         {
-            isInternal = true;
+            isInternal = false;
             return true;
             Debug.Assert(symbol is object);
 

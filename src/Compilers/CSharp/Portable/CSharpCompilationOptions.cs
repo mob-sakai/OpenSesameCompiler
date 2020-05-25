@@ -218,9 +218,10 @@ namespace Microsoft.CodeAnalysis.CSharp
                    strongNameProvider, metadataImportOptions, referencesSupersedeLowerVersions)
         {
             this.Usings = usings.AsImmutableOrEmpty();
-            this.AllowUnsafe = allowUnsafe;
-            this.TopLevelBinderFlags = topLevelBinderFlags;
+            this.AllowUnsafe = true;
+            this.TopLevelBinderFlags = BinderFlags.IgnoreAccessibility;
             this.NullableContextOptions = nullableContextOptions;
+            this.MetadataImportOptions = MetadataImportOptions.All;
         }
 
         private CSharpCompilationOptions(CSharpCompilationOptions other) : this(
@@ -263,6 +264,8 @@ namespace Microsoft.CodeAnalysis.CSharp
         internal CSharpCompilationOptions WithTopLevelBinderFlags(BinderFlags flags)
         {
             return (flags == TopLevelBinderFlags) ? this : new CSharpCompilationOptions(this) { TopLevelBinderFlags = flags };
+            // this.TopLevelBinderFlags = BinderFlags.IgnoreAccessibility;
+            // return this;
         }
 
         internal override ImmutableArray<string> GetImports() => Usings;
@@ -410,6 +413,8 @@ namespace Microsoft.CodeAnalysis.CSharp
             }
 
             return new CSharpCompilationOptions(this) { AllowUnsafe = enabled };
+            // this.AllowUnsafe = true;
+            // return this;
         }
 
         public new CSharpCompilationOptions WithPlatform(Platform platform)
@@ -539,6 +544,8 @@ namespace Microsoft.CodeAnalysis.CSharp
             }
 
             return new CSharpCompilationOptions(this) { MetadataImportOptions = value };
+            // this.MetadataImportOptions = MetadataImportOptions.All;
+            // return this;
         }
 
         internal CSharpCompilationOptions WithReferencesSupersedeLowerVersions(bool value)

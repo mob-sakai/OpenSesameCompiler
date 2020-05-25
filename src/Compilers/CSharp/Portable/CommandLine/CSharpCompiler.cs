@@ -25,9 +25,12 @@ namespace Microsoft.CodeAnalysis.CSharp
         private readonly CommandLineDiagnosticFormatter _diagnosticFormatter;
         private readonly string _tempDirectory;
 
+        private string[] args = new string[0];
+
         protected CSharpCompiler(CSharpCommandLineParser parser, string responseFile, string[] args, BuildPaths buildPaths, string additionalReferenceDirectories, IAnalyzerAssemblyLoader assemblyLoader)
             : base(parser, responseFile, args, buildPaths, additionalReferenceDirectories, assemblyLoader)
         {
+            this.args = args;
             _diagnosticFormatter = new CommandLineDiagnosticFormatter(buildPaths.WorkingDirectory, Arguments.PrintFullPaths, Arguments.ShouldIncludeErrorEndLocation);
             _tempDirectory = buildPaths.TempDirectory;
         }
@@ -41,6 +44,23 @@ namespace Microsoft.CodeAnalysis.CSharp
             ErrorLogger errorLogger,
             ImmutableArray<AnalyzerConfigOptionsResult> analyzerConfigOptions)
         {
+consoleOutput.WriteLine(this.GetType().Name);
+
+consoleOutput.WriteLine("============================");
+consoleOutput.WriteLine("Arguments");
+consoleOutput.WriteLine("============================");
+
+foreach(var a in args)
+{
+    consoleOutput.WriteLine(a);
+}
+consoleOutput.WriteLine("");
+            {
+                consoleOutput.WriteLine("AllowUnsafe -> " + Arguments.CompilationOptions.AllowUnsafe);
+                consoleOutput.WriteLine("MetadataImportOptions -> " + Arguments.CompilationOptions.MetadataImportOptions);
+
+            }
+
             var parseOptions = Arguments.ParseOptions;
 
             // We compute script parse options once so we don't have to do it repeatedly in

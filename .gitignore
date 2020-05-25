@@ -192,3 +192,6 @@ $RECYCLE.BIN/
 # WPF temp projects
 *wpftmp.*
 node_modules/
+OSCTest/OpenSesameCompiler.3.5.0/
+hogehoge/
+OSCTest/Toolset/

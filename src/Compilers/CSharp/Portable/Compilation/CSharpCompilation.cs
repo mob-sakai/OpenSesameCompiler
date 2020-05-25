@@ -326,12 +326,6 @@ namespace Microsoft.CodeAnalysis.CSharp
             RoslynDebug.Assert(options != null);
             Debug.Assert(!isSubmission || options.ReferencesSupersedeLowerVersions);
 
-            // Modify compilation options.
-            options = options
-                .WithMetadataImportOptions(MetadataImportOptions.All) // MetadataImportOptions.All.
-                .WithAllowUnsafe(true)  // Allow unsafe.
-                ;
-
             var validatedReferences = ValidateReferences<CSharpCompilationReference>(references);
 
             // We can't reuse the whole Reference Manager entirely (reuseReferenceManager = false)
