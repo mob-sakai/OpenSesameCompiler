@@ -1,0 +1,9 @@
+/target:exe
+/nowarn:0169
+/out:"OSCTest.dll"
+/preferreduilang:en-US
+/langversion:latest
+/reference:/Applications/Unity/Hub/Editor/2019.3.12f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll
+/reference:"/Applications/Unity/Hub/Editor/2019.3.12f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/netstandard.dll"
+/reference:/Users/takashi.sakai/repos/OpenSesameCompiler/artifacts/bin/OSCTestLib/Release/netstandard2.0/OSCTestLib.dll
+"OSCTest/Program.cs"
